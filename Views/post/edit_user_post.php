@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../Models/database.php';
+require_once '../../Models/database.php';
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header('Location: ../pages/index.php');
@@ -48,7 +48,7 @@ if (!$post) {
         <div class="container px-5">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <form action="../Controllers/update_user_post.php" method="post" enctype="multipart/form-data">
+                    <form action="../../Controllers/update_user_post.php" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<?= $post['id'] ?>">
 
                         <div class="mb-3">
@@ -68,7 +68,7 @@ if (!$post) {
 
                         <?php if ($post['image_path']): ?>
                             <p>Aktuální obrázek:</p>
-                            <img src="../uploads/<?= htmlspecialchars($post['image_path']) ?>" class="img-fluid mb-3" style="max-height: 200px;">
+                            <img src="../../uploads/<?= htmlspecialchars($post['image_path']) ?>" class="img-fluid mb-3" style="max-height: 200px;">
                         <?php endif; ?>
 
                         <button type="submit" class="btn btn-primary">Uložit změny</button>

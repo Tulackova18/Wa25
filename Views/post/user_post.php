@@ -50,6 +50,19 @@ try {
     </div>
 </header>
 
+<?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+    <div class="container px-5 mb-4 text-end">
+        <a href="user_list.php" class="btn btn-outline-secondary">Správa uživatelů</a>
+    </div>
+<?php endif; ?>
+
+<?php if (isset($_SESSION['user_id'])): ?>
+    <div class="container px-5 mb-4 text-end">
+        <a href="create_user_post.php" class="btn btn-primary">
+            <i class="bi bi-plus-circle me-1"></i> Přidej článek
+        </a>
+    </div>
+<?php endif; ?>
 
 
     <section class="py-5">
@@ -78,7 +91,7 @@ try {
                         <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
                             <div class="d-flex gap-2">
                                 <a href="edit_user_post.php?id=<?= $post['id'] ?>" class="btn btn-sm btn-outline-primary">Upravit</a>
-                                <form action="../Controllers/delete_user_post.php" method="post" onsubmit="return confirm('Opravdu chcete příspěvek smazat?');">
+                                <form action="../../Controllers/delete_user_post.php" method="post" onsubmit="return confirm('Opravdu chcete příspěvek smazat?');">
                                     <input type="hidden" name="id" value="<?= $post['id'] ?>">
                                     <button type="submit" class="btn btn-sm btn-outline-danger">Smazat</button>
                                 </form>

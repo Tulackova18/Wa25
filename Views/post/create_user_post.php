@@ -24,7 +24,7 @@ if (!isset($_SESSION['user_id'])) {
   <section class="py-5">
     <div class="container px-5">
       <h1 class="fw-bold mb-4">Vytvořit nový článek</h1>
-      <form action="../Controllers/store_user_post.php" method="post" enctype="multipart/form-data" class="d-flex flex-column gap-3">
+      <form action="../../Controllers/store_user_post.php" method="post" enctype="multipart/form-data" class="d-flex flex-column gap-3">
         <div>
           <label for="title" class="form-label">Nadpis článku</label>
           <input type="text" class="form-control" id="title" name="title" required />

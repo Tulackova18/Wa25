@@ -30,7 +30,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
                         <?php if (isset($_SESSION['username'])): ?>
-                            <li><a class="dropdown-item" href="../Views/auth/logout.php">Odhlásit se</a></li>
+                            <li><a class="dropdown-item" href="../auth/logout.php">Odhlásit se</a></li>
                         <?php else: ?>
                             <li><a class="dropdown-item" href="../auth/register.php">Registrace</a></li>
                             <li><a class="dropdown-item" href="../auth/login.php">Přihlášení</a></li>

@@ -149,7 +149,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <!-- Vlastní články-->
             <?php if (isset($_SESSION['user_id'])): ?>
             <div class="container px-5 mb-4">
-                <a href="create_user_post.php" class="btn btn-primary">Přidat vlastní článek</a>
+                <a href="../post/create_user_post.php" class="btn btn-primary">Přidat vlastní článek</a>
             </div>
             <?php endif; ?>
                    
