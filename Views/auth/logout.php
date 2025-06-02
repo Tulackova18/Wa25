@@ -8,5 +8,5 @@ $_SESSION = [];
 session_destroy();
 
 // Přesměrování na homepage nebo login
-header("Location: ../Views/pages/index.php");
+header("Location: ../pages/index.php");
 exit();
