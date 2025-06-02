@@ -2,9 +2,9 @@
 session_start();
 require_once '../Models/database.php';
 
-// Kontrola oprávnění
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
-    header("Location: ../Views/pages/index.php");
+// Kontrola přihlášení
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../Views/auth/login.php");
     exit();
 }
 
@@ -14,23 +14,36 @@ if (!isset($_POST['id']) || !is_numeric($_POST['id'])) {
 }
 
 $id = (int)$_POST['id'];
+$userId = $_SESSION['user_id'];
+$userRole = $_SESSION['role'];
 $pdo = (new Database())->getConnection();
 
-// Načtení obrázku pro případné smazání souboru
-$stmt = $pdo->prepare("SELECT image_path FROM user_posts WHERE id = ?");
+// Načtení příspěvku (kvůli kontrole vlastnictví + smazání obrázku)
+$stmt = $pdo->prepare("SELECT user_id, image_path FROM user_posts WHERE id = ?");
 $stmt->execute([$id]);
 $post = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if ($post && !empty($post['image_path'])) {
+if (!$post) {
+    die("Příspěvek nebyl nalezen.");
+}
+
+// ✅ Kontrola oprávnění: může mazat admin nebo vlastník
+if ($userRole !== 'admin' && $post['user_id'] != $userId) {
+    die("Nemáte oprávnění smazat tento příspěvek.");
+}
+
+// Smazání obrázku ze serveru (pokud existuje)
+if (!empty($post['image_path'])) {
     $imageFile = '../uploads/' . $post['image_path'];
     if (file_exists($imageFile)) {
-        unlink($imageFile); // smaže obrázek ze serveru
+        unlink($imageFile);
     }
 }
 
-// Smazání z databáze
+// Smazání příspěvku z databáze
 $stmt = $pdo->prepare("DELETE FROM user_posts WHERE id = ?");
 $stmt->execute([$id]);
 
+// Přesměrování zpět
 header("Location: ../Views/post/user_post.php");
 exit();

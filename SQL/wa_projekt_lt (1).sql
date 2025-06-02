@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Počítač: 127.0.0.1
--- Vytvořeno: Pon 02. čen 2025, 18:41
+-- Vytvořeno: Pon 02. čen 2025, 23:07
 -- Verze serveru: 10.4.32-MariaDB
 -- Verze PHP: 8.0.30
 
@@ -46,10 +46,10 @@ INSERT INTO `blog_comments` (`id`, `post_id`, `user_id`, `content`, `created_at`
 -- --------------------------------------------------------
 
 --
--- Struktura tabulky `blog_posts`
+-- Struktura tabulky `blog_prispevky`
 --
 
-CREATE TABLE `blog_posts` (
+CREATE TABLE `blog_prispevky` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` text DEFAULT NULL,
@@ -59,10 +59,10 @@ CREATE TABLE `blog_posts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Vypisuji data pro tabulku `blog_posts`
+-- Vypisuji data pro tabulku `blog_prispevky`
 --
 
-INSERT INTO `blog_posts` (`id`, `title`, `content`, `created_at`, `updated_at`, `user_id`) VALUES
+INSERT INTO `blog_prispevky` (`id`, `title`, `content`, `created_at`, `updated_at`, `user_id`) VALUES
 (1, 'Co je to Smart City?', NULL, '2022-12-31 23:00:00', NULL, 0),
 (2, 'Technologie chytrých měst', NULL, '2023-03-11 23:00:00', NULL, 0),
 (3, 'Životní prostředí', NULL, '2023-04-22 22:00:00', NULL, 0),
@@ -94,7 +94,6 @@ CREATE TABLE `blog_users` (
 --
 
 INSERT INTO `blog_users` (`id`, `username`, `first_name`, `last_name`, `email`, `password`, `role`, `created_at`) VALUES
-(35, 'admin', 'admin', 'admin', 'admin@tul.cz', 'hashed_password', 'admin', '2025-05-25 17:11:53'),
 (37, 'domin.kov', NULL, NULL, 'dov.dd@tul.cz', '$2y$10$8beLgYkceWFZ7n.z.InNr..JIhWB5jZfPSRNDkAClUY6Pa9OGTthW', 'user', '2025-05-26 13:29:07'),
 (39, 'jan.noc', NULL, NULL, 'ddd@tul.cz', '$2y$10$/itCKAESY3kBgFXN0BaGMe/ciRVxzZ1QpcPghUekYjZiJMGiAPP7e', 'user', '2025-05-26 20:28:49'),
 (40, 'novy', NULL, NULL, 'n@tul.cz', '$2y$10$2v2jQdrkX0VDCVznKROJF.ZqiZsgG4fMr7UX6PHUYlGI85bVZcKAO', 'user', '2025-05-26 21:57:16'),
@@ -107,7 +106,8 @@ INSERT INTO `blog_users` (`id`, `username`, `first_name`, `last_name`, `email`, 
 (49, '.admin', NULL, NULL, 'admin@urbantechh.cz', '$2y$10$m.N3j/l4l3bYyMICm63.tutpQdK2JR4apddehe3Pvwez8PnsTfruy', 'admin', '2025-05-27 20:57:52'),
 (50, 'admin7', NULL, NULL, 'admin7@urbantech.cz', '$2y$10$lJY6i9gFyHp05M.eR1VfQeuCLcSyiqv.HxX.0HP3ack4bl4dufJpq', 'user', '2025-06-02 16:08:44'),
 (51, 'admin8', NULL, NULL, 'admin8@tul.cz', '$2y$10$9KhP8KIMPd7HswZlfYvNlOAYCGyRawJv7.EW0jw4U5R08GwYRRlf6', 'user', '2025-06-02 16:19:54'),
-(52, 'admin9', NULL, NULL, 'admin9@tul.cz', '$2y$10$33OYLTHh7ChQDhXmPpdWmOAZZItHiBgbwx9k37gP..B1RlZvvWQY2', 'admin', '2025-06-02 16:21:15');
+(52, 'admin9', NULL, NULL, 'admin9@tul.cz', '$2y$10$33OYLTHh7ChQDhXmPpdWmOAZZItHiBgbwx9k37gP..B1RlZvvWQY2', 'admin', '2025-06-02 16:21:15'),
+(53, 'user', NULL, NULL, 'uuser@tul.cz', '$2y$10$mqSeK/DAvytgkSkeNNsYj.2O3VDlY8zM0ocqbjCCxSFxyqNjNKgbe', 'user', '2025-06-02 20:58:29');
 
 -- --------------------------------------------------------
 
@@ -125,6 +125,40 @@ CREATE TABLE `user_posts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Vypisuji data pro tabulku `user_posts`
+--
+
+INSERT INTO `user_posts` (`id`, `user_id`, `title`, `content`, `image_path`, `created_at`) VALUES
+(12, 52, 'Článek admina', 'Článek admina \r\nText', NULL, '2025-06-02 22:57:13'),
+(13, 53, 'Článek usera', 'Článek usera \r\n\r\nUprava adminem', NULL, '2025-06-02 23:00:39');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `user_post_comments`
+--
+
+CREATE TABLE `user_post_comments` (
+  `id` int(11) NOT NULL,
+  `user_post_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `created_at` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Vypisuji data pro tabulku `user_post_comments`
+--
+
+INSERT INTO `user_post_comments` (`id`, `user_post_id`, `user_id`, `content`, `created_at`) VALUES
+(7, 12, 52, 'Komentář admina', '2025-06-02 22:57:25'),
+(8, 12, 52, 'Komentář admina 2', '2025-06-02 22:57:33'),
+(10, 12, 53, 'Komentář usera upravený userem (ano)', '2025-06-02 22:59:08'),
+(11, 12, 53, 'Nový komentář usera', '2025-06-02 22:59:34'),
+(13, 13, 53, 'User komentář (uprava adminem)', '2025-06-02 23:00:55'),
+(14, 13, 52, 'Admin komentář (s úpravou)', '2025-06-02 23:02:22');
+
+--
 -- Indexy pro exportované tabulky
 --
 
@@ -137,9 +171,9 @@ ALTER TABLE `blog_comments`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexy pro tabulku `blog_posts`
+-- Indexy pro tabulku `blog_prispevky`
 --
-ALTER TABLE `blog_posts`
+ALTER TABLE `blog_prispevky`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -158,6 +192,14 @@ ALTER TABLE `user_posts`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexy pro tabulku `user_post_comments`
+--
+ALTER TABLE `user_post_comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_post_id` (`user_post_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- AUTO_INCREMENT pro tabulky
 --
 
@@ -168,22 +210,28 @@ ALTER TABLE `blog_comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pro tabulku `blog_posts`
+-- AUTO_INCREMENT pro tabulku `blog_prispevky`
 --
-ALTER TABLE `blog_posts`
+ALTER TABLE `blog_prispevky`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pro tabulku `blog_users`
 --
 ALTER TABLE `blog_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT pro tabulku `user_posts`
 --
 ALTER TABLE `user_posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT pro tabulku `user_post_comments`
+--
+ALTER TABLE `user_post_comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Omezení pro exportované tabulky
@@ -193,7 +241,7 @@ ALTER TABLE `user_posts`
 -- Omezení pro tabulku `blog_comments`
 --
 ALTER TABLE `blog_comments`
-  ADD CONSTRAINT `blog_comments_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `blog_posts` (`id`),
+  ADD CONSTRAINT `blog_comments_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `blog_prispevky` (`id`),
   ADD CONSTRAINT `blog_comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `blog_users` (`id`);
 
 --
@@ -201,6 +249,13 @@ ALTER TABLE `blog_comments`
 --
 ALTER TABLE `user_posts`
   ADD CONSTRAINT `user_posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `blog_users` (`id`);
+
+--
+-- Omezení pro tabulku `user_post_comments`
+--
+ALTER TABLE `user_post_comments`
+  ADD CONSTRAINT `user_post_comments_ibfk_1` FOREIGN KEY (`user_post_id`) REFERENCES `user_posts` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_post_comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `blog_users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
