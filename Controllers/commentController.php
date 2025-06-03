@@ -27,7 +27,7 @@ class CommentController
             $content = trim($_POST['content']);
             if (!empty($content)) {
                 $this->commentModel->add($post_id, $_SESSION['user_id'], $content);
-                header("Location: blog-p_1.php");
+                header("Location: blog-p_$post_id.php");
                 exit();
             }
         }
