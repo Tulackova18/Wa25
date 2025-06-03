@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container px-5">
         <a class="navbar-brand" href="index.php">
             <img src="../../assets/favicon.ico" style="height: 24px; width: 24px; margin-right: 8px;">
@@ -28,7 +28,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
-                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
                         <?php if (isset($_SESSION['username'])): ?>
                             <li><a class="dropdown-item" href="../auth/logout.php">Odhlásit se</a></li>
                         <?php else: ?>
@@ -37,7 +37,7 @@ if (session_status() === PHP_SESSION_NONE) {
                         <?php endif; ?>
                     </ul>
 
-                </li>                                                             
+                </li>
             </ul>
         </div>
     </div>

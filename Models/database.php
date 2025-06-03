@@ -1,13 +1,15 @@
 <?php
 
-class Database {
+class Database
+{
     private $host = "localhost";
     private $db_name = "wa_projekt_lt";
     private $username = "root";
     private $password = "";
     public $conn;
 
-    public function getConnection() {
+    public function getConnection()
+    {
         $this->conn = null;
 
         try {
@@ -19,7 +21,6 @@ class Database {
 
             // DŮLEŽITÉ: zapnutí režimu výpisu chyb jako výjimek
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
         } catch (PDOException $exception) {
             echo "<strong>Chyba připojení:</strong> " . $exception->getMessage();
         }
