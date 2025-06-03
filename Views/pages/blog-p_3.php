@@ -2,7 +2,7 @@
 session_start();
 require_once '../../Controllers/commentController.php';
 
-$post_id = 1;
+$post_id = 3;
 $controller = new CommentController();
 $controller->handleCommentSubmit($post_id);
 $comments = $controller->getComments($post_id);

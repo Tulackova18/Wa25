@@ -28,8 +28,8 @@ if (!$post) {
 }
 
 // ✅ Kontrola oprávnění: může mazat admin nebo vlastník
-if ($userRole !== 'admin' && $post['user_id'] != $userId) {
-    die("Nemáte oprávnění smazat tento příspěvek.");
+if (!$post || ($_SESSION['user_id'] != $post['user_id'] && $_SESSION['role'] !== 'admin')) {
+    die("Nemáte oprávnění.");
 }
 
 // Smazání obrázku ze serveru (pokud existuje)

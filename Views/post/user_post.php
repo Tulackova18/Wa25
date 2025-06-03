@@ -6,10 +6,11 @@ try {
     $pdo = (new Database())->getConnection();
 
     // Získání všech článků uživatelů
-    $stmt = $pdo->query("SELECT p.id, p.title, p.content, p.image_path, p.created_at, u.username
-                          FROM user_posts p
-                          JOIN blog_users u ON p.user_id = u.id
-                          ORDER BY p.created_at DESC");
+    $stmt = $pdo->query("SELECT p.id, p.title, p.content, p.image_path, p.created_at, p.user_id, u.username
+                     FROM user_posts p
+                     JOIN blog_users u ON p.user_id = u.id
+                     ORDER BY p.created_at DESC");
+
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     die("Chyba databáze: " . $e->getMessage());
@@ -89,15 +90,19 @@ try {
 
                                     <p class="card-text mb-3"><?= htmlspecialchars(mb_strimwidth($post['content'], 0, 100, '...')) ?></p>
 
-                                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-                                        <div class="d-flex gap-2">
+                                    <?php if (
+                                        isset($_SESSION['user_id']) &&
+                                        ($_SESSION['user_id'] == $post['user_id'] || $_SESSION['role'] === 'admin')
+                                    ): ?>
+                                        <div class="mt-2">
                                             <a href="edit_user_post.php?id=<?= $post['id'] ?>" class="btn btn-sm btn-outline-primary">Upravit</a>
-                                            <form action="../../Controllers/delete_user_post.php" method="post" onsubmit="return confirm('Opravdu chcete příspěvek smazat?');">
+                                            <form method="post" action="../../Controllers/delete_user_post.php" class="d-inline" onsubmit="return confirm('Opravdu chcete smazat tento příspěvek?');">
                                                 <input type="hidden" name="id" value="<?= $post['id'] ?>">
                                                 <button type="submit" class="btn btn-sm btn-outline-danger">Smazat</button>
                                             </form>
                                         </div>
                                     <?php endif; ?>
+
                                 </div>
 
 

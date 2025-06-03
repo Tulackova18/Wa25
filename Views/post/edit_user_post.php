@@ -2,26 +2,27 @@
 session_start();
 require_once '../../Models/database.php';
 
-if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header('Location: ../pages/index.php');
-    exit();
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+    die("Neplatné ID příspěvku.");
 }
+
+$postId = (int)$_GET['id'];
 
 $pdo = (new Database())->getConnection();
-
-if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-    die('Neplatné ID příspěvku.');
-}
-$postId = (int) $_GET['id'];
-
 $stmt = $pdo->prepare("SELECT * FROM user_posts WHERE id = ?");
 $stmt->execute([$postId]);
 $post = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$post) {
-    die('Příspěvek nebyl nalezen.');
+    die("Příspěvek nenalezen.");
+}
+
+if ($_SESSION['user_id'] != $post['user_id'] && $_SESSION['role'] !== 'admin') {
+    die("Nemáte oprávnění upravit tento příspěvek.");
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="cs">
