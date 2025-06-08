@@ -48,7 +48,7 @@ $comments = $controller->getComments($post_id);
                                 <!-- Post title-->
                                 <h1 class="fw-bolder mb-1">Životní prostředí</h1>
                                 <!-- Post meta content-->
-                                <div class="text-muted fst-italic mb-2">Duben 23, 2023</div>
+                                <div class="text-muted fst-italic mb-2">Duben 23, 2025</div>
                                 <!-- Post categories-->
                                 <a class="badge bg-secondary text-decoration-none link-light" href="blog-home.html">Chytrá města</a>
                             </header>

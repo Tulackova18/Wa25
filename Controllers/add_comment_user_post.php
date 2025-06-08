@@ -7,12 +7,12 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { //odeslání dat 
     $userId = $_SESSION['user_id'];
     $postId = $_POST['post_id'] ?? null;
     $content = trim($_POST['content'] ?? '');
 
-    // Ověření vstupu
+    // Ověření vstupu, že post existuje 
     if (!$postId || !is_numeric($postId) || empty($content)) {
         die("Neplatné nebo neúplné údaje.");
     }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Počítač: 127.0.0.1
--- Vytvořeno: Pon 02. čen 2025, 23:07
+-- Vytvořeno: Ned 08. čen 2025, 17:54
 -- Verze serveru: 10.4.32-MariaDB
 -- Verze PHP: 8.0.30
 
@@ -40,8 +40,8 @@ CREATE TABLE `blog_comments` (
 --
 
 INSERT INTO `blog_comments` (`id`, `post_id`, `user_id`, `content`, `created_at`) VALUES
-(1, 2, 39, 'n', '2025-05-26 23:17:50'),
-(2, 2, 39, 'xd', '2025-05-26 23:19:45');
+(23, 2, 52, 'Komentář admina (upravený)', '2025-06-08 17:18:35'),
+(24, 3, 52, 'Komentář admina', '2025-06-08 17:19:44');
 
 -- --------------------------------------------------------
 
@@ -94,20 +94,11 @@ CREATE TABLE `blog_users` (
 --
 
 INSERT INTO `blog_users` (`id`, `username`, `first_name`, `last_name`, `email`, `password`, `role`, `created_at`) VALUES
-(37, 'domin.kov', NULL, NULL, 'dov.dd@tul.cz', '$2y$10$8beLgYkceWFZ7n.z.InNr..JIhWB5jZfPSRNDkAClUY6Pa9OGTthW', 'user', '2025-05-26 13:29:07'),
-(39, 'jan.noc', NULL, NULL, 'ddd@tul.cz', '$2y$10$/itCKAESY3kBgFXN0BaGMe/ciRVxzZ1QpcPghUekYjZiJMGiAPP7e', 'user', '2025-05-26 20:28:49'),
-(40, 'novy', NULL, NULL, 'n@tul.cz', '$2y$10$2v2jQdrkX0VDCVznKROJF.ZqiZsgG4fMr7UX6PHUYlGI85bVZcKAO', 'user', '2025-05-26 21:57:16'),
-(42, 'jana.nova', NULL, NULL, 'nov@tul.cz', '$2y$10$xRKferdF3/QcJb4XYajGgOOPcP/CdrBndDQ2.WYUBngg8gnawBQ7u', 'user', '2025-05-27 15:34:06'),
-(43, 'uzivatel2', NULL, NULL, 'dva@tul.cz', '$2y$10$G93vE4r2eEWx.XiN2Mo3J.Fq5qjl7M8jUckORt59XqUTQwN5Mk7ZS', 'user', '2025-05-27 16:10:59'),
-(44, 'admin2', NULL, NULL, 'admin@urbantech.cz', '$2y$10$ZY7hAQoMnhOMBRa4KNNEweplQZlIdq2mTCoMxM0FZqY8tr.xDGJ02', 'admin', '2025-05-27 16:36:59'),
-(45, 'admin3', NULL, NULL, '', 'fff...DDD8', 'admin', '2025-05-27 20:45:48'),
 (47, 'admin4', NULL, NULL, 'ssss@tul.cz', '$2y$10$abc12345dummypasswordhashetcetcetc', 'admin', '2025-05-27 20:48:32'),
-(48, 'admin.', NULL, NULL, 'admin.@tul.cz', '$2y$10$xrHjm0g2R9gF/GYblYuyiOUVCh/HZ8Jz20cv5yT.cwKB/FjeMRYUi', 'user', '2025-05-27 20:56:09'),
-(49, '.admin', NULL, NULL, 'admin@urbantechh.cz', '$2y$10$m.N3j/l4l3bYyMICm63.tutpQdK2JR4apddehe3Pvwez8PnsTfruy', 'admin', '2025-05-27 20:57:52'),
 (50, 'admin7', NULL, NULL, 'admin7@urbantech.cz', '$2y$10$lJY6i9gFyHp05M.eR1VfQeuCLcSyiqv.HxX.0HP3ack4bl4dufJpq', 'user', '2025-06-02 16:08:44'),
 (51, 'admin8', NULL, NULL, 'admin8@tul.cz', '$2y$10$9KhP8KIMPd7HswZlfYvNlOAYCGyRawJv7.EW0jw4U5R08GwYRRlf6', 'user', '2025-06-02 16:19:54'),
 (52, 'admin9', NULL, NULL, 'admin9@tul.cz', '$2y$10$33OYLTHh7ChQDhXmPpdWmOAZZItHiBgbwx9k37gP..B1RlZvvWQY2', 'admin', '2025-06-02 16:21:15'),
-(53, 'user', NULL, NULL, 'uuser@tul.cz', '$2y$10$mqSeK/DAvytgkSkeNNsYj.2O3VDlY8zM0ocqbjCCxSFxyqNjNKgbe', 'user', '2025-06-02 20:58:29');
+(54, 'novyuser', NULL, NULL, 'novyuser@tul.cz', '$2y$10$1zvkKKaXaZbemFnzYp0eOu92yZX8eBvAbuRQNo.VHZ1HFU90UAiEe', 'user', '2025-06-03 15:38:49');
 
 -- --------------------------------------------------------
 
@@ -129,8 +120,9 @@ CREATE TABLE `user_posts` (
 --
 
 INSERT INTO `user_posts` (`id`, `user_id`, `title`, `content`, `image_path`, `created_at`) VALUES
-(12, 52, 'Článek admina', 'Článek admina \r\nText', NULL, '2025-06-02 22:57:13'),
-(13, 53, 'Článek usera', 'Článek usera \r\n\r\nUprava adminem', NULL, '2025-06-02 23:00:39');
+(21, 52, 'Když město začne přemýšlet', 'Někdy si připadám, jako bychom žili v budoucnosti, o které jsme kdysi jen četli. Naše ulice reagují na pohyb, lavičky nabíjejí mobily ze slunce a senzor ví, že koš je plný dřív, než ho zahlédne popelář. Smart city nejsou jen buzzword – jsou to živé systémy, které propojují lidi, data a technologie. A nejlepší na tom? Vše to začíná malými nápady v komunitě. Těmi, co sedí večer u kávy a přemýšlí, jak z města udělat lepší místo k životu.', '../uploads/1749396676_paris-smart-city-2050-0.jpg', '2025-06-08 17:31:16'),
+(22, 52, 'Ticho, které šetří elektřinu', 'Když se vypne světlo, které nikdo nepotřebuje. Když přestane běžet čerpadlo, protože déšť to zvládl za něj. Když si město dovolí být chvíli tiché, protože nemusí nic navíc. To je podle mě opravdová udržitelnost – ne zelená barva na papíře, ale tichá rozhodnutí, která se dějí automaticky, protože dáváme pozor.', '../uploads/1749397417_istockphoto-1255236199-612x612.jpg', '2025-06-08 17:43:37'),
+(23, 54, 'Nepotřebujeme větší města. Potřebujeme chytřejší!', 'Zástavba roste, lidé přibývají. Ale odpovědí nemusí být další silnice a víc betonu. Možná stačí lépe řídit to, co už máme. Města se nemusí zvětšovat – můžou se zlepšovat. A když vidím, jak někde vznikne chytrá čtvrť, kde i popelnice ví, kdy má dost, říkám si: proč by to nemohlo být i u nás?', '../uploads/1749397657_o3tioqjw.png', '2025-06-08 17:47:37');
 
 -- --------------------------------------------------------
 
@@ -151,12 +143,8 @@ CREATE TABLE `user_post_comments` (
 --
 
 INSERT INTO `user_post_comments` (`id`, `user_post_id`, `user_id`, `content`, `created_at`) VALUES
-(7, 12, 52, 'Komentář admina', '2025-06-02 22:57:25'),
-(8, 12, 52, 'Komentář admina 2', '2025-06-02 22:57:33'),
-(10, 12, 53, 'Komentář usera upravený userem (ano)', '2025-06-02 22:59:08'),
-(11, 12, 53, 'Nový komentář usera', '2025-06-02 22:59:34'),
-(13, 13, 53, 'User komentář (uprava adminem)', '2025-06-02 23:00:55'),
-(14, 13, 52, 'Admin komentář (s úpravou)', '2025-06-02 23:02:22');
+(22, 22, 54, 'Komentář uživatele', '2025-06-08 17:44:45'),
+(23, 21, 54, 'Komentář uživatele', '2025-06-08 17:45:13');
 
 --
 -- Indexy pro exportované tabulky
@@ -207,7 +195,7 @@ ALTER TABLE `user_post_comments`
 -- AUTO_INCREMENT pro tabulku `blog_comments`
 --
 ALTER TABLE `blog_comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT pro tabulku `blog_prispevky`
@@ -219,19 +207,19 @@ ALTER TABLE `blog_prispevky`
 -- AUTO_INCREMENT pro tabulku `blog_users`
 --
 ALTER TABLE `blog_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT pro tabulku `user_posts`
 --
 ALTER TABLE `user_posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT pro tabulku `user_post_comments`
 --
 ALTER TABLE `user_post_comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Omezení pro exportované tabulky

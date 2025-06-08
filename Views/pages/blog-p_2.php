@@ -41,7 +41,7 @@ $comments = $controller->getComments($post_id);
                         <article>
                             <header class="mb-4">
                                 <h1 class="fw-bolder mb-1">Technologie chytrých měst</h1>
-                                <div class="text-muted fst-italic mb-2">Březen 12, 2023</div>
+                                <div class="text-muted fst-italic mb-2">Březen 12, 2025</div>
                                 <a class="badge bg-secondary text-decoration-none link-light" href="blog.php">Chytrá města</a>
                             </header>
                             <figure class="mb-4">

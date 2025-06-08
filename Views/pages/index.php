@@ -181,8 +181,9 @@
                         </div>
                         <div class="ms-xl-4">
                             <div class="input-group mb-2">
-                                <input class="form-control" type="text" placeholder="Emailová adresa" aria-label="Email address..." aria-describedby="button-newsletter" /><!-- Změna emailové adresy-->
-                                <button class="btn btn-outline-light" id="button-newsletter" type="button">Registrace</button>
+                                <a href="../auth/register.php">
+                                    <button class="btn btn-outline-light" id="button-newsletter" type="button">Registrace</button>
+                                </a>
                             </div>
                             <div class="small text-white-50">Vaše soukromí je pro nás důležité a nikdy nebudeme sdílet vaše údaje.</div>
                         </div>

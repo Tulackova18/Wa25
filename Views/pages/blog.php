@@ -73,7 +73,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                         <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
                                         <div class="small">
                                             <div class="fw-bold">Lenka Tuláčková</div>
-                                            <div class="text-muted">Březen 12, 2023 &middot;</div>
+                                            <div class="text-muted">Březen 12, 2025 &middot;</div>
                                         </div>
                                     </div>
                                 </div>
@@ -98,7 +98,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                         <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
                                         <div class="small">
                                             <div class="fw-bold">Lenka Tuláčková</div>
-                                            <div class="text-muted">Duben 23, 2023 &middot;</div>
+                                            <div class="text-muted">Duben 23, 2025 &middot;</div>
                                         </div>
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                         <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
                                         <div class="small">
                                             <div class="fw-bold">Lenka Tuláčková</div>
-                                            <div class="text-muted">Červen 2, 2023 &middot;</div>
+                                            <div class="text-muted">Červen 2, 2025 &middot;</div>
                                         </div>
                                     </div>
                                 </div>
@@ -148,7 +148,7 @@ if (session_status() === PHP_SESSION_NONE) {
                                     <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
                                     <div class="small">
                                         <div class="fw-bold">Lenka Tuláčková</div>
-                                        <div class="text-muted">Srpen, 2023 &middot; </div>
+                                        <div class="text-muted">Srpen, 2025 &middot; </div>
                                     </div>
                                 </div>
                             </div>

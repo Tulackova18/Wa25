@@ -79,7 +79,6 @@ try {
                                 <?php endif; ?>
 
                                 <div class="card-body p-4">
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Uživatel</div>
 
                                     <!-- Název článku bez stretched-link -->
                                     <h5 class="card-title mb-3">
