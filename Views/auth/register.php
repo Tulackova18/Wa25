@@ -81,12 +81,12 @@ error_reporting(E_ALL);
     const confirm = document.getElementById('password_confirm');
     const message = document.getElementById('passwordMatchMessage');
 
-    form.addEventListener('submit', function(e) {
-      if (password.value !== confirm.value) {
-        e.preventDefault();
-        message.classList.remove('d-none');
+    form.addEventListener('submit', function(e) { //když se uživatel pokusí odeslat formulář
+      if (password.value !== confirm.value) { //Porovná, jestli zadané heslo a potvrzení hesla jsou stejné
+        e.preventDefault(); //Pokud nejsou stejná, zabrání odeslání formuláře
+        message.classList.remove('d-none'); // Zobrazí chybovou zprávu 
       } else {
-        message.classList.add('d-none');
+        message.classList.add('d-none'); //Pokud hesla souhlasí, skryje chybovou zprávu
       }
     });
   </script>

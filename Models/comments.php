@@ -3,6 +3,7 @@ class Comment
 {
     private $db;
 
+    //konstruktor 
     public function __construct($pdo)
     {
         $this->db = $pdo;
@@ -23,7 +24,7 @@ class Comment
                                     JOIN blog_users u ON c.user_id = u.id
                                     WHERE c.post_id = ? 
                                     ORDER BY c.created_at DESC");
-        $stmt->execute([$postId]);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->execute([$postId]); //prepared statement – chrání před SQL injekcemi, spustí připravený SQL dotaz ($stmt) s parametrem $postId
+        return $stmt->fetchAll(PDO::FETCH_ASSOC); // vrací všechny řádky z výsledku jako pole asociativních polí
     }
 }

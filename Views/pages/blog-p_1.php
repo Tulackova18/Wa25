@@ -3,9 +3,9 @@ session_start();
 require_once '../../Controllers/commentController.php';
 
 $post_id = 1;
-$controller = new CommentController();
-$controller->handleCommentSubmit($post_id);
-$comments = $controller->getComments($post_id);
+$controller = new CommentController(); //Vytvoří nový objekt třídy
+$controller->handleCommentSubmit($post_id); // Zpracování komentáře
+$comments = $controller->getComments($post_id); //Načte všechny komentáře k danému příspěvku (dle ID)
 ?>
 
 <!DOCTYPE html>

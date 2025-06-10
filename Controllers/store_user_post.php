@@ -26,16 +26,16 @@ if (empty($title) || empty($content)) {
 // Zpracování obrázku (pokud byl nahrán)
 $imagePath = null;
 
-if (!empty($_FILES['image']['name'])) {
+if (!empty($_FILES['image']['name'])) { //Kontrola, jestli byl opravdu nahrán img
     $uploadDir = '../uploads/';
-    if (!is_dir($uploadDir)) {
+    if (!is_dir($uploadDir)) { //slozka neexistuje 
         mkdir($uploadDir, 0777, true);
     }
 
-    $imageName = basename($_FILES['image']['name']);
-    $imagePath = $uploadDir . time() . '_' . $imageName;
+    $imageName = basename($_FILES['image']['name']); //Získá pouze název souboru bez cesty
+    $imagePath = $uploadDir . time() . '_' . $imageName; // Vytváří unikátní název souboru
 
-    move_uploaded_file($_FILES['image']['tmp_name'], $imagePath);
+    move_uploaded_file($_FILES['image']['tmp_name'], $imagePath); //Přesune soubor z dočasného umístění (tmp_name) do složky uploads  
 }
 
 // Vložení článku do DB

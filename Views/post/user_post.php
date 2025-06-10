@@ -5,11 +5,17 @@ require_once '../../Models/database.php';
 try {
     $pdo = (new Database())->getConnection();
 
-    // Získání všech článků uživatelů
+    // SQL dotaz, který vybírá všechny příspěvky uživatelů spolu se jménem autora
+    // - tabulka user_posts je zkrácena jako "p"
+    // - tabulka blog_users jako "u"
+    // - spojují se přes user_id
+    // - výsledky jsou řazeny podle času vytvoření (nejnovější první) 
+
     $stmt = $pdo->query("SELECT p.id, p.title, p.content, p.image_path, p.created_at, p.user_id, u.username
                      FROM user_posts p
-                     JOIN blog_users u ON p.user_id = u.id
+                     JOIN blog_users u ON p.user_id = u.id 
                      ORDER BY p.created_at DESC");
+
 
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {

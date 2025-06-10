@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $new_content = trim($_POST['content'] ?? '');
     $redirect_to = $_POST['redirect_to'] ?? "../Views/pages/blog-p_$post_id.php";
 
+    // Ověření potřebných proměnných (prázdná nebo neexistuje)
     if (!$comment_id || !$new_content || !$post_id) {
         echo "Neplatný požadavek.";
         exit;

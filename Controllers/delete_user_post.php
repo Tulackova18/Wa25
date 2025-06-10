@@ -13,9 +13,9 @@ if (!isset($_POST['id']) || !is_numeric($_POST['id'])) {
     die("Neplatné ID.");
 }
 
-$id = (int)$_POST['id'];
-$userId = $_SESSION['user_id'];
-$userRole = $_SESSION['role'];
+$id = (int)$_POST['id']; //Získá hodnotu id příspěvku z formuláře
+$userId = $_SESSION['user_id']; //Získá ID přihlášeného uživatele ze session
+$userRole = $_SESSION['role']; //Načítá roli přihlášeného uživatele
 $pdo = (new Database())->getConnection();
 
 // Načtení příspěvku (kvůli kontrole vlastnictví + smazání obrázku)
@@ -27,7 +27,7 @@ if (!$post) {
     die("Příspěvek nebyl nalezen.");
 }
 
-// ✅ Kontrola oprávnění: může mazat admin nebo vlastník
+// Kontrola oprávnění: může mazat admin nebo vlastník
 if (!$post || ($_SESSION['user_id'] != $post['user_id'] && $_SESSION['role'] !== 'admin')) {
     die("Nemáte oprávnění.");
 }

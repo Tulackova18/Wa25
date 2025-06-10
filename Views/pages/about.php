@@ -32,7 +32,7 @@
             </div>
         </header>
 
-        <!-- About section one -->
+        <!-- Prvni odstavec -->
         <section class="py-5 bg-light" id="scroll-target">
             <div class="container px-5 my-5">
                 <div class="row gx-5 align-items-center">
@@ -47,7 +47,7 @@
             </div>
         </section>
 
-        <!-- About section two -->
+        <!-- Druhy odstavec  -->
         <section class="py-5">
             <div class="container px-5 my-5">
                 <div class="row gx-5 align-items-center">

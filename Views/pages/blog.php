@@ -1,6 +1,6 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+if (session_status() === PHP_SESSION_NONE) { //Kontroluje, zda ještě není spuštěna session
+    session_start(); //Spustí (uložení role, id, jména uživatele)
 }
 ?>
 

@@ -10,11 +10,11 @@ class Database
 
     public function getConnection()
     {
-        $this->conn = null;
+        $this->conn = null; //Zajišťuje, že proměnná $conn začíná jako null
 
         try {
-            $this->conn = new PDO(
-                "mysql:host=" . $this->host . ";dbname=" . $this->db_name . ";charset=utf8",
+            $this->conn = new PDO( //Vytváří nový objekt PDO – připojení k databázi
+                "mysql:host=" . $this->host . ";dbname=" . $this->db_name . ";charset=utf8", //localhost, název db, přihlašovací údaje 
                 $this->username,
                 $this->password
             );

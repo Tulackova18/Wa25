@@ -17,7 +17,6 @@ error_reporting(E_ALL);
 <body class="d-flex flex-column">
   <main class="flex-shrink-0">
 
-    <!-- Vlastní navigace -->
     <?php include 'navbar.php'; ?>
     <header class="py-3 bg-light border-bottom mb-4">
       <div class="container px-5">

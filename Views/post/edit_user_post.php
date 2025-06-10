@@ -8,10 +8,10 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 
 $postId = (int)$_GET['id'];
 
-$pdo = (new Database())->getConnection();
-$stmt = $pdo->prepare("SELECT * FROM user_posts WHERE id = ?");
-$stmt->execute([$postId]);
-$post = $stmt->fetch(PDO::FETCH_ASSOC);
+$pdo = (new Database())->getConnection(); //připojení k databázi 
+$stmt = $pdo->prepare("SELECT * FROM user_posts WHERE id = ?"); //SQL dotaz, který vybere jeden příspěvek podle jeho ID 
+$stmt->execute([$postId]); //předá do něj ID příspěvku jako parametr (ochrana proti SQL injection)
+$post = $stmt->fetch(PDO::FETCH_ASSOC); // získá výsledek dotazu
 
 if (!$post) {
     die("Příspěvek nenalezen.");

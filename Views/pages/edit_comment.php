@@ -2,11 +2,12 @@
 session_start();
 require_once '../../Models/database.php';
 
+//kontroluje platné id komentáře pro jeho úpravu
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     die("Neplatné ID komentáře.");
 }
 
-$commentId = (int)$_GET['id'];
+$commentId = (int)$_GET['id']; //Získává id hodnotu z URL
 
 try {
     $pdo = (new Database())->getConnection();
@@ -52,10 +53,10 @@ try {
         <div class="container py-5">
             <h2>Upravit komentář</h2>
 
-            <form action="../../Controllers/update_comment.php" method="post">
-                <input type="hidden" name="id" value="<?= $commentId ?>">
-                <input type="hidden" name="post_id" value="<?= $postId ?>">
-                <input type="hidden" name="redirect_to" value="<?= htmlspecialchars($redirectUrl) ?>">
+            <form action="../../Controllers/update_comment.php" method="post"> <!--Spustí formulář, který odešle data metodou POST do souboru update_comment.php-->
+                <input type="hidden" name="id" value="<?= $commentId ?>"><!--Skryté pole s ID komentáře, který se má upravit-->
+                <input type="hidden" name="post_id" value="<?= $postId ?>"><!--Ukládá ID příspěvku (článku), ke kterému komentář patře-->
+                <input type="hidden" name="redirect_to" value="<?= htmlspecialchars($redirectUrl) ?>"><!-- Kam má být uživatel přesměrován po úspěšné úpravě-->
 
                 <div class="mb-3">
                     <label for="content" class="form-label">Obsah komentáře:</label>
