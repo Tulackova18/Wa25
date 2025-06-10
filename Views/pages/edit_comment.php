@@ -21,13 +21,6 @@ try {
         die("Komentář nebyl nalezen.");
     }
 
-    // Ověření práv
-    if (
-        !isset($_SESSION['user_id']) ||
-        ($_SESSION['user_id'] != $comment['user_id'] && $_SESSION['role'] !== 'admin')
-    ) {
-        die("Nemáte oprávnění upravit tento komentář.");
-    }
 
     $postId = $comment['post_id'];
     $redirectUrl = $_SERVER['HTTP_REFERER'] ?? "../pages/blog-p_$postId.php";

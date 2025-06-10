@@ -20,10 +20,10 @@ class CommentController //Definuje třídu CommentController
             return [];
         }
     }
-
+    //Odeslání nového komentáře
     public function handleCommentSubmit($post_id)
-    {   //Spustí se, pokud byl formulář odeslán metodou POST a uživatel je přihlášen
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user_id'])) {
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user_id'])) { ////Spustí se, pokud byl formulář odeslán metodou POST a uživatel je přihlášen
             $content = trim($_POST['content']); //Z formuláře vezme obsah komentáře, odstraní mezery na začátku a konci
             if (!empty($content)) { //Pokračuje jen, pokud obsah není prázdný
 

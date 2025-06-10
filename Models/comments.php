@@ -9,7 +9,7 @@ class Comment
         $this->db = $pdo;
     }
 
-    // Přidání komentáře k článku nebo uživatelskému příspěvku
+    // Přidání komentáře k článku na blogu
     public function add($postId, $userId, $content)
     {
         $stmt = $this->db->prepare("INSERT INTO blog_comments (post_id, user_id, content) VALUES (?, ?, ?)");
