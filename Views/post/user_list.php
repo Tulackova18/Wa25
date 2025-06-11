@@ -28,7 +28,7 @@ try {
 
 <body class="d-flex flex-column">
     <main class="flex-shrink-0">
-        <?php include '../pages/navbar.php'; ?>
+        <?php include 'navbar.php'; ?>
 
         <section class="py-5">
             <div class="container px-5">
