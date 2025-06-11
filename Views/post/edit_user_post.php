@@ -16,7 +16,7 @@ $post = $stmt->fetch(PDO::FETCH_ASSOC); // získá výsledek dotazu
 if (!$post) {
     die("Příspěvek nenalezen.");
 }
-
+// Změna id v URL nebude fungovat 
 if ($_SESSION['user_id'] != $post['user_id'] && $_SESSION['role'] !== 'admin') {
     die("Nemáte oprávnění upravit tento příspěvek.");
 }
