@@ -9,9 +9,9 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Data z formuláře
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $userId = $_SESSION['user_id'];
-    $postId = $_POST['post_id'] ?? null;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { //Kontroluje, zda byl formulář odeslán metodou POST
+    $userId = $_SESSION['user_id']; //Získá ID aktuálně přihlášeného uživatele ze session
+    $postId = $_POST['post_id'] ?? null; //?? null znamená: pokud $_POST['post_id'] neexistuje, použije se null
     $content = trim($_POST['content'] ?? '');
 
     // Ověření vstupu, že post existuje 
