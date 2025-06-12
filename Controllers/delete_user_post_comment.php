@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
     header('Location: ../Views/pages/index.php');
     exit();
 }
-//Kontroluje, zda byl poslán comment_id a jestli jde o číslo (kvůli bezpečnosti).
+//Kontroluje, zda byl poslán comment_id a jestli jde o číslo 
 if (!isset($_POST['comment_id']) || !is_numeric($_POST['comment_id'])) {
     die("Neplatné ID komentáře.");
 }
